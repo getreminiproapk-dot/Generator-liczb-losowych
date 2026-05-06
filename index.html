@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generator Liczb Losowych w Życiu Codziennym</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --primary-dark: #4338ca;
+            --bg: #f8fafc;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --card-bg: #ffffff;
+            --accent: #ec4899;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 0;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1e293b 0%, #4f46e5 100%);
+            color: white;
+            padding: 4rem 1rem;
+            text-align: center;
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: -2rem auto 4rem;
+            padding: 0 1.5rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            letter-spacing: -0.025em;
+        }
+
+        .intro-card {
+            background: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 3rem;
+        }
+
+        .intro-card p {
+            font-size: 1.125rem;
+            color: var(--text-muted);
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin: 3rem 0 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        h2::before {
+            content: "";
+            display: inline-block;
+            width: 4px;
+            height: 1.8rem;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            margin: 1.5rem 0 0.75rem;
+            color: #334155;
+        }
+
+        p {
+            margin-bottom: 1.25rem;
+        }
+
+        .grid-types {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .type-box {
+            background: #f1f5f9;
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            border-left: 4px solid var(--primary);
+        }
+
+        .type-box strong {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--primary-dark);
+        }
+
+        .use-case-card {
+            background: var(--card-bg);
+            border-radius: 1rem;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid #e2e8f0;
+            transition: transform 0.2s;
+        }
+
+        .use-case-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+        }
+
+        .badge {
+            display: inline-block;
+            background: #e0e7ff;
+            color: var(--primary);
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        ul {
+            list-style-type: none;
+            margin-bottom: 1.5rem;
+        }
+
+        ul li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        ul li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        footer {
+            background: #1e293b;
+            color: #94a3b8;
+            padding: 3rem 1rem;
+            text-align: center;
+            margin-top: 5rem;
+        }
+
+        .summary {
+            background: linear-gradient(to right, #4f46e5, #7c3aed);
+            color: white;
+            padding: 2.5rem;
+            border-radius: 1rem;
+            margin-top: 4rem;
+        }
+
+        .summary h2 {
+            color: white;
+        }
+
+        .summary h2::before {
+            background: white;
+        }
+
+        @media (max-width: 768px) {
+            .grid-types {
+                grid-template-columns: 1fr;
+            }
+            h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container" style="margin-bottom: 0;">
+        <h1>Generator Liczb Losowych</h1>
+        <p style="opacity: 0.9; font-size: 1.2rem;">Niewidzialny architekt naszej codzienności</p>
+    </div>
+</header>
+
+<div class="container">
+    <section class="intro-card">
+        <p>
+            <a href="https://narzedziahub.pl/generator-liczb-losowych">Generator liczb losowych</a> (RNG) to narzędzie, które produkuje sekwencje liczb pozbawione przewidywalnego wzorca. 
+            Choć brzmi to jak czysta matematyka, RNG przenika niemal każdy aspekt naszego życia – od bezpieczeństwa bankowego 
+            po rozrywkę w Twoim smartfonie.
+        </p>
+    </section>
+
+    <h2>Rodzaje generatorów</h2>
+    <div class="grid-types">
+        <div class="type-box">
+            <strong>PRNG (Pseudolosowe)</strong>
+            Algorytmy deterministyczne oparte na ziarnie (seed). Szybkie i powtarzalne, idealne do gier i symulacji.
+        </div>
+        <div class="type-box">
+            <strong>TRNG (Prawdziwie losowe)</strong>
+            Wykorzystują zjawiska fizyczne, jak szum atmosferyczny czy termiczny. Kluczowe w wysokiej klasy kryptografii.
+        </div>
+    </div>
+
+    <div class="use-case-card">
+        <span class="badge">Bezpieczeństwo</span>
+        <h3>Kryptografia i ochrona danych</h3>
+        <p>To tutaj RNG pełni najważniejszą rolę. Bez losowości Twoje dane w sieci byłyby otwartą księgą:</p>
+        <ul>
+            <li><strong>Klucze szyfrujące:</strong> Protokół HTTPS (kłódka w przeglądarce) używa RNG do zabezpieczenia sesji.</li>
+            <li><strong>Tokeny 2FA:</strong> Kody z aplikacji Google Authenticator czy mObywatel.</li>
+            <li><strong>Menedżery haseł:</strong> Generowanie bezpiecznych, 20-znakowych haseł.</li>
+        </ul>
+    </div>
+
+    <div class="use-case-card">
+        <span class="badge">Rozrywka</span>
+        <h3>Hazard i Gry Komputerowe</h3>
+        <p>W grach losowość to emocje i regrywalność:</p>
+        <ul>
+            <li><strong>Gry AAA:</strong> Minecraft (generowanie świata) czy loot w Diablo.</li>
+            <li><strong>Genshin Impact:</strong> Systemy gacha decydujące o zdobyciu postaci.</li>
+            <li><strong>Lotto i Kasyna:</strong> Certyfikowane systemy RNG gwarantują uczciwość i wynik zgodny z prawem.</li>
+        </ul>
+    </div>
+
+    <div class="use-case-card">
+        <span class="badge">Nauka i Finanse</span>
+        <h3>Symulacje i Prognozowanie</h3>
+        <p>RNG pozwala nam przewidywać przyszłość poprzez metodę Monte Carlo:</p>
+        <ul>
+            <li><strong>Prognozy pogody:</strong> Symulowanie tysięcy scenariuszy atmosferycznych.</li>
+            <li><strong>Giełda:</strong> Testowanie odporności portfeli inwestycyjnych na kryzysy.</li>
+            <li><strong>Medycyna:</strong> Losowe grupy kontrolne w badaniach klinicznych leków (RCT).</li>
+        </ul>
+    </div>
+
+    <div class="use-case-card">
+        <span class="badge">Lifestyle</span>
+        <h3>Codzienne Aplikacje</h3>
+        <p>RNG masz dosłownie w kieszeni:</p>
+        <ul>
+            <li><strong>Spotify:</strong> Tryb "Shuffle" (choć czasem celowo modyfikowany dla lepszych wrażeń).</li>
+            <li><strong>Tinder:</strong> Elementy losowości w dobieraniu par.</li>
+            <li><strong>Nawigacja:</strong> Proponowanie alternatywnych tras w celu rozładowania korków.</li>
+        </ul>
+    </div>
+
+    <section class="summary">
+        <h2>Podsumowanie</h2>
+        <p>
+            RNG jest jednym z filarów współczesnego świata. Dzięki niemu życie jest bardziej sprawiedliwe, bezpieczne i ekscytujące. 
+            W erze AI znaczenie wysokiej jakości losowości będzie tylko rosło, szczególnie w tworzeniu cyfrowej sztuki i zaawansowanych symulacji. 
+            Następnym razem, gdy zalogujesz się do banku – pomyśl o algorytmie, który w ułamku sekundy stworzył dla Ciebie unikalną barierę bezpieczeństwa.
+        </p>
+    </section>
+</div>
+
+<footer>
+    <p>&copy; 2026 Artykuł o Technologii. Wszystkie prawa zastrzeżone.</p>
+</footer>
+
+</body>
+</html>
